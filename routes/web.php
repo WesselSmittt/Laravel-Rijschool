@@ -1,6 +1,9 @@
 <?php
 
+use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\InstructeurController;
 use Illuminate\Support\Facades\Route;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -16,3 +19,22 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('/dashboard', function () {
+    return view('dashboard');
+})->middleware(['auth', 'verified'])->name('dashboard');
+
+Route::middleware('auth')->group(function () {
+    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
+    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
+    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+});
+
+Route::resource('instructeurs', InstructeurController::class);
+
+Route::get('/instructeurs', [InstructeurController::class, 'indienst'])->name('instructeurs.indienst');
+require __DIR__.'/auth.php';
+
+Route::get('/instructeurs', [InstructeurController::class, 'index'])->name('instructeurs.index');
+Route::post('/instructeurs/{id}/toggle-status', [InstructeurController::class, 'toggleStatus'])->name('instructeurs.toggleStatus');
+
