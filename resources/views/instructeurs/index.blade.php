@@ -41,7 +41,7 @@
                     <form action="{{ route('instructeurs.toggleStatus', $instructeur->id) }}" method="post">
                         @csrf
                         <button type="submit" class="{{ $instructeur->is_actief ? 'text-green-600' : 'text-red-600' }}">
-                            {{ $instructeur->is_actief ? 'Actief' : 'Niet Actief' }}
+                            {{ $instructeur->is_actief ? '👍' : '🩹' }}
                         </button>
                     </form>
                 </td>
