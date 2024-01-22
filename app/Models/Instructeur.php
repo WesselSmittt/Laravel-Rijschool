@@ -13,15 +13,8 @@ class Instructeur extends Model
         'mobiel',
         'datum_in_dienst',
         'aantal_sterren',
+        'voertuig',
         'is_actief',
-        'opmerking',
-        'datum_aangemaakt',
-        'datum_gewijzigd',
     ];
 
-    // Relatie met VoertuigInstructeur
-    public function voertuigen()
-    {
-        return $this->hasMany(VoertuigInstructeur::class);
-    }
 }
