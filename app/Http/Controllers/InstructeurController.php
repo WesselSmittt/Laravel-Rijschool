@@ -9,8 +9,20 @@ class InstructeurController extends Controller
 {
     public function index()
     {
+        // Haal alle instructeurs op en sorteer ze op aantal_sterren in aflopende volgorde
         $instructeurs = Instructeur::orderByDesc('aantal_sterren')->get();
-        return view('instructeurs.index', compact('instructeurs'));
+
+        // Filter de actieve instructeurs
+        $actieveInstructeurs = $instructeurs->where('is_actief', true);
+
+        // Stel het aantal actieve instructeurs in voor de view
+        $aantalActieveInstructeurs = $actieveInstructeurs->count();
+
+        // Geef de data door naar de view
+        return view('instructeurs.index', [
+            'instructeurs' => $instructeurs,
+            'aantalActieveInstructeurs' => $aantalActieveInstructeurs,
+        ]);
     }
 
     public function toggleStatus(Request $request, $id)
