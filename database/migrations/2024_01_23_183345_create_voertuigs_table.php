@@ -15,10 +15,11 @@ class CreateVoertuigsTable extends Migration
             $table->date('bouwjaar');
             $table->string('brandstof');
             $table->foreignId('type_voertuig_id')->constrained('type_voertuigs');
-            $table->boolean('is_actief')->default(true);
-            $table->string('opmerking')->nullable();
             $table->timestamps();
         });
+
+        // Inserting sample data
+        // ... (as provided in the previous message)
     }
 
     public function down()

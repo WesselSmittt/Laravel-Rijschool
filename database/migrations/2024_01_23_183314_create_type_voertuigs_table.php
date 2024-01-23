@@ -14,6 +14,7 @@ class CreateTypeVoertuigsTable extends Migration
             $table->string('rijbewijscategorie');
             $table->timestamps();
         });
+
     }
 
     public function down()
