@@ -40,7 +40,7 @@
                 <td class="border-b">{{ $instructeur->mobiel }}</td>
                 <td class="border-b">{{ $instructeur->datum_in_dienst }}</td>
                 <td class="border-b">{{ $instructeur->aantal_sterren }}</td>
-                <td class="border-b">{{ $instructeur->voertuig }}</td>
+                <td class="border-b"><a href="{{ route('instructeurs.gebruiktevoertuigen') }}" class="text-blue-500 hover:text-blue-700">🚙</a></td>
                 <td class="border-b">
                     <form action="{{ route('instructeurs.toggleStatus', $instructeur->id) }}" method="post">
                         @csrf
