@@ -34,4 +34,30 @@ class InstructeurController extends Controller
         $message = $instructeur->is_actief ? 'Instructeur is weer actief.' : 'Instructeur is op niet actief gezet.';
         return redirect()->route('instructeurs.index')->with('message', $message);
     }
+
+    public function gebruikteVoertuigen($id)
+    {
+        // Logica om instructeurgegevens en gebruikte voertuigen op te halen
+        $instructeur = Instructeur::findOrFail($id);
+        $gebruikteVoertuigen = $instructeur->gebruikteVoertuigen; // Pas dit aan op basis van je relatie
+    
+        return view('instructeurs.gebruikte-voertuigen', compact('instructeur', 'gebruikteVoertuigen'));
+    }   
+
+    public function create($instructeurId)
+{
+    // Logica om de create-pagina voor gebruikt voertuig te tonen
+    return view('instructeurs.gebruikte-voertuigen.create', compact('instructeurId'));
+}
+
+
+
+public function show($id)
+{
+    // Logica om instructeurgegevens op te halen en naar de view te sturen
+    $instructeur = Instructeur::findOrFail($id);
+    return view('instructeurs.show', compact('instructeur'));
+}
+
+
 }

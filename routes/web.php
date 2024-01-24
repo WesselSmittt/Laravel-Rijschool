@@ -39,6 +39,8 @@ require __DIR__.'/auth.php';
 Route::get('/instructeurs', [InstructeurController::class, 'index'])->name('instructeurs.index');
 Route::post('/instructeurs/{id}/toggle-status', [InstructeurController::class, 'toggleStatus'])->name('instructeurs.toggleStatus');
 
-Route::get('/gebruiktevoertuigen', [VoertuigController::class, 'index'])->name('instructeurs.gebruiktevoertuigen');
-Route::get('/voertuigen/create', [VoertuigController::class, 'create'])->name('voertuigen.create');
-Route::post('/voertuigen', [VoertuigController::class, 'store'])->name('voertuigen.store');
+Route::get('/instructeurs/{id}/gebruikte-voertuigen', [InstructeurController::class, 'gebruikteVoertuigen'])
+    ->name('instructeurs.gebruikte-voertuigen');
+Route::get('/instructeurs/{id}/gebruikte-voertuigen/create', [GebruikteVoertuigController::class, 'create'])
+    ->name('instructeurs.gebruikte-voertuigen.create');
+

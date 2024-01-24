@@ -17,4 +17,9 @@ class Instructeur extends Model
         'is_actief',
     ];
 
+    // Definieer relaties met andere modellen indien nodig
+    public function voertuigen()
+    {
+        return $this->hasMany(VoertuigInstructeur::class, 'instructeur_id');
+    }
 }
