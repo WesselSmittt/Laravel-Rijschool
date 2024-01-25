@@ -41,6 +41,7 @@ Route::post('/instructeurs/{id}/toggle-status', [InstructeurController::class, '
 
 Route::get('/instructeurs/{id}/gebruikte-voertuigen', [InstructeurController::class, 'gebruikteVoertuigen'])
     ->name('instructeurs.gebruikte-voertuigen');
-Route::get('/instructeurs/{id}/gebruikte-voertuigen/create', [GebruikteVoertuigController::class, 'create'])
-    ->name('instructeurs.gebruikte-voertuigen.create');
+Route::get('/instructeurs/{id}/gebruikte-voertuigen/create', [InstructeurController::class, 'create'])
+    ->name('instructeurs.create');
 
+    Route::post('/voertuigen', [InstructeurController::class, 'store'])->name('voertuigen.store');

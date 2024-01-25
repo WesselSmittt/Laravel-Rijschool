@@ -47,7 +47,7 @@ class InstructeurController extends Controller
     public function create($instructeurId)
 {
     // Logica om de create-pagina voor gebruikt voertuig te tonen
-    return view('instructeurs.gebruikte-voertuigen.create', compact('instructeurId'));
+    return view('instructeurs.create', compact('instructeurId'));
 }
 
 
